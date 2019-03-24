@@ -32,7 +32,9 @@ Download python [here](https://www.python.org/downloads/)
 python instabot.py <instagram username of the account whose followers you want to scrape>
 
 ```python instabot.py katyperry```
+
 ```python instabot.py kimkardashian```
+
 ```python instabot.py kimkardashian,katyperry```
 
 ![http://i.imgur.com/4701rGk.png](http://imgur.com/4701rGkl.png)
