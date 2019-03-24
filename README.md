@@ -29,7 +29,7 @@ Download python [here](https://www.python.org/downloads/)
 
 ## Usage example
 
-python instabot.py **instagram username of the account whose followers you want to scrape**
+```python instabot.py >instagram username of the account whose followers you want to scrape<```
 
 ```python instabot.py katyperry```
 
