@@ -8,9 +8,9 @@ import sys
 L = instaloader.Instaloader()
 
 # Login or load session
-L.login('dslr.lover.nepal', 'kubhwifi')        # (login)
+# L.login('dslr.lover.nepal', 'kubhwifi')        # (login)
 #L.interactive_login(USER)      # (ask password on terminal)
-# L.load_session_from_file('dslr.lover.nepal') # (load session created w/
+L.load_session_from_file('dslr.lover.nepal') # (load session created w/
                                #  `instaloader -l USERNAME`)
 import urllib3
 
@@ -66,6 +66,19 @@ for pro in PROFILE:
                 bio = person.biography
                 emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", bio)
                 website = person.external_url
+                #last activity
+                try:
+                    follower_profile = instaloader.Profile.from_username(L.context, username)
+                    for post in profile.get_posts():
+                        last_activity = post.date_local
+                        break
+                except Exception as e:
+                    print(e)
+                    last_activity=''
+
+
+                
+                
                 with open(filename,'a',newline='') as csvf:
 
                     csv_writer = csv.writer(csvf)
@@ -73,6 +86,7 @@ for pro in PROFILE:
                 # os.system('clear')
                 print('\nTotal:',total)
                 print('Username:',username)
+                print('Last Activity',last_activity)
             
             except Exception as e:
                 print(e)
