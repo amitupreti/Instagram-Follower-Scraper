@@ -8,11 +8,25 @@ import sys
 L = instaloader.Instaloader()
 
 # Login or load session
-L.login('dslr.lover.nepal', 'hero2012')        # (login)
+L.login('dslr.lover.nepal', 'kubhwifi')        # (login)
 #L.interactive_login(USER)      # (ask password on terminal)
 # L.load_session_from_file('dslr.lover.nepal') # (load session created w/
                                #  `instaloader -l USERNAME`)
+import urllib3
 
+http = urllib3.PoolManager()
+
+
+
+def wait_for_internet_connection():
+    while True:
+        try:
+        
+            response = http.request('GET', 'http://ku.edu.np')
+            return
+        except:
+            print('No internet connection.\nTrying after 5 seconds.\n')
+            sleep(5)
 
 p = sys.argv[1]
 p=p.split(',')
@@ -23,6 +37,7 @@ PROFILE = p
 
 for pro in PROFILE:
     try:
+        wait_for_internet_connection()
         print('\n\nGetting followers from',pro)
         filename = pro+'.csv'
         with open(filename,'a',newline='') as csvf:
@@ -38,7 +53,7 @@ for pro in PROFILE:
         # Print list of followees
         for person in profile.get_followers():
             try:
-
+                wait_for_internet_connection()
                 total+=1
                 user_id = person.userid
                 username = person.username
