@@ -8,10 +8,11 @@ import sys
 L = instaloader.Instaloader()
 
 # Login or load session
+
 # L.login('dslr.lover.nepal', 'kubhwifi')        # (login)
 #L.interactive_login(USER)      # (ask password on terminal)
 L.load_session_from_file('dslr.lover.nepal') # (load session created w/
-                               #  `instaloader -l USERNAME`)
+
 import urllib3
 
 http = urllib3.PoolManager()
