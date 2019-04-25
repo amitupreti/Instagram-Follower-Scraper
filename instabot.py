@@ -17,7 +17,7 @@ L = instaloader.Instaloader()
 
 # Login or load session
 
-L.login('dslr.lover.nepal', 'kubhwifi')        # (login)
+L.login('username', 'password')        # (login)
 #L.interactive_login(USER)      # (ask password on terminal)
 # L.load_session_from_file('dslr.lover.nepal') # (load session created w/
 
@@ -27,7 +27,7 @@ http = urllib3.PoolManager()
 
 
 start = timer()
-
+curr = str(datetime.datetime.now())    
 
 def wait_for_internet_connection():
     while True:
@@ -46,7 +46,7 @@ accounts = f.read()
 p = accounts.split('\n')
 
 
-with open('last.txt','w+') as f:
+with open('last.txt','r') as f:
     last =  f.read()
     last=last.strip()
 print('Last account scraped was:',last)
@@ -72,7 +72,7 @@ for ind in range(len(PROFILE)):
         with open(filename,'a',newline='') as csvf:
 
             csv_writer = csv.writer(csvf)
-            csv_writer.writerow(['user_id','username','fullname','is_verified','is_private','media_count','follower_count','following_count','bio','website','emails','last_activity'])
+            csv_writer.writerow(['user_id','username','fullname','is_verified','is_private','media_count','follower_count','following_count','bio','website','emails','last_activity','scrape_of', 'scraped_at'])
             
 
     
@@ -99,7 +99,7 @@ for ind in range(len(PROFILE)):
                 #last activity
                 try:
                     follower_profile = instaloader.Profile.from_username(L.context, username)
-                    for post in profile.get_posts():
+                    for post in follower_profile.get_posts():
                         last_activity = post.date_local
                         break
                 except Exception as e:
@@ -107,20 +107,19 @@ for ind in range(len(PROFILE)):
                     last_activity=''
 
 
-                
-                
+                print('Username:',username)
+                print('Last Activity',last_activity)
                 with open(filename,'a',newline='') as csvf:
 
                     csv_writer = csv.writer(csvf)
-                    csv_writer.writerow([user_id,username,fullname,is_verified,is_private,media_count,follower_count,following_count,bio,website,emails,last_activity])
+                    csv_writer.writerow([user_id,username,fullname,is_verified,is_private,media_count,follower_count,following_count,bio,website,emails,last_activity,pro,curr])
                 # os.system('clear')
-                os.system('cls' if os.name == 'nt' else 'clear')
+                # os.system('cls' if os.name == 'nt' else 'clear')
 
                 print('--------------------------------------------------------------------------------\nTotal followers scraped:',total,' out of',main_followers)
                 print('Time:',str(datetime.timedelta(seconds=(timer()-start))))
                 print('Current Account:',ind+1,'\t Remaining Accounts:',len(PROFILE)-ind-1 ,'\nAccount Name:',pro)
-                print('Username:',username)
-                # print('Last Activity',last_activity)
+                
             
             except Exception as e:
                 print(e)
