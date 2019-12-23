@@ -69,7 +69,7 @@ for ind in range(len(PROFILE)):
         wait_for_internet_connection()
         print('\n\nGetting followers from',pro)
         filename = 'downloads/'+pro+'.csv'
-        with open(filename,'a',newline='') as csvf:
+        with open(filename,'a',newline='',encoding="utf-8") as csvf:
 
             csv_writer = csv.writer(csvf)
             csv_writer.writerow(['user_id','username','fullname','is_verified','is_private','media_count','follower_count','following_count','bio','website','emails','last_activity','scrape_of', 'scraped_at'])
