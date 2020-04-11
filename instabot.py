@@ -17,7 +17,7 @@ L = instaloader.Instaloader()
 
 # Login or load session
 
-L.login('djkeremeris', 'keremeris2019')        # (login)
+L.login('username', 'password')        # (login)
 #L.interactive_login(USER)      # (ask password on terminal)
 # L.load_session_from_file('dslr.lover.nepal') # (load session created w/
 
