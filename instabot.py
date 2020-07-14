@@ -39,7 +39,7 @@ def wait_for_internet_connection():
             print('No internet connection.\nTrying after 5 seconds.\n')
             sleep(5)
 
-wait_for_internet_connection()
+# wait_for_internet_connection()
 
 f = open('input.txt','r')
 accounts = f.read()
@@ -66,7 +66,7 @@ print('Total accounts:',len(PROFILE))
 for ind in range(len(PROFILE)):
     pro = PROFILE[ind]
     try:
-        wait_for_internet_connection()
+#         wait_for_internet_connection()
         print('\n\nGetting followers from',pro)
         filename = 'downloads/'+pro+'.csv'
         with open(filename,'a',newline='',encoding="utf-8") as csvf:
@@ -83,7 +83,7 @@ for ind in range(len(PROFILE)):
         # Print list of followees
         for person in profile.get_followers():
             try:
-                wait_for_internet_connection()
+#                 wait_for_internet_connection()
                 total+=1
                 user_id = person.userid
                 username = person.username
