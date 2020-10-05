@@ -41,3 +41,6 @@ Use this to view the logs
 Have Questions or Hire me!
 Email: [a.u.aua937@gmail.com](mailto:a.u.aua937@gmail.com)
 Upwork:[Hire Me!](https://www.upwork.com/o/profiles/users/_~0138a590d015bae20a/)
+
+
+[![Run on Repl.it](https://repl.it/badge/github/amitupreti/Instagram-Follower-Scraper)](https://repl.it/github/amitupreti/Instagram-Follower-Scraper)
