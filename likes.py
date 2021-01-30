@@ -15,12 +15,12 @@ L.interactive_login(USER)
 profile = instaloader.Profile.from_username(L.context, PROFILE)
 likes=[]
 comments=[]
-url=[]
+#url=[]
 print("Fetching likes of all posts of profile {}.".format(profile.username))
 for post in profile.get_posts():    
-    #url.append(post.url)
     likes.append(post.likes)
     comments.append(post.comments)
+    #url.append(post.url)
     # response = requests.get(post.url)
     # img = Image.open(BytesIO(response.content))
     # img.show()
