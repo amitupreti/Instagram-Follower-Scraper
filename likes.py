@@ -24,6 +24,7 @@ for post in profile.get_posts():
     # response = requests.get(post.url)
     # img = Image.open(BytesIO(response.content))
     # img.show()
+    
 print(likes)
 print(comments)
 total_likes=sum(likes)
