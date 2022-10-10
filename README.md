@@ -1,3 +1,6 @@
+# this project is not maintained anymore
+
+
 # Instagram Follower Scraper
 > Scrapes all the followers from instagram pages and stores them in a csv file
 
