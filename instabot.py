@@ -19,7 +19,7 @@ L = instaloader.Instaloader()
 
 L.login('username', 'password')        # (login)
 #L.interactive_login(USER)      # (ask password on terminal)
-# L.load_session_from_file('dslr.lover.nepal') # (load session created w/
+# L.load_session_from_file('username') # (load session created w/
 
 pathlib.Path('downloads/').mkdir(parents=True, exist_ok=True)
 
@@ -33,7 +33,7 @@ def wait_for_internet_connection():
     while True:
         try:
         
-            response = http.request('GET', 'http://ku.edu.np')
+            response = http.request('GET', 'https://google.com')
             return
         except:
             print('No internet connection.\nTrying after 5 seconds.\n')
